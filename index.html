@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
+        <title>something</title>
     </head>
     <body>
         <div class="topnav">
@@ -13,23 +14,61 @@
                 <img src="https://github.githubassets.com/favicons/favicon-dark.svg" alt="github">
             </a>
         </div>
-    <h1><br><br><br> hello world !1</h1>
+    <h1><br><br><br> hello world</h1>
    
     <h2>this is my github page<span class="cursor"></span></h2>
-    <p1>> scroll or click the buttons<p1>
+    <p1>> . .. .. . .. . . . ... . .. .. . .. . . ..<p1>
+
+    <div class="buttons1">
+        <a onclick="document.getElementById('bio').scrollIntoView();">about me</a>
+        <a onclick="document.getElementById('contact').scrollIntoView();">contact</a>
+    </div>
+
+    <br><br>
+    <p1>> last update: may 2nd</p1> <br>
+    <p1>> hr dotted lines</p1> <br>
+    <p1>> mewo</p1> <br>
+    <p1>> useless buttons</p1>
+
+    <hr class="seperate">
 
     <h2 class="seperate" id="contact"><br><br><br><br>contact me and stuff blah blah</h2>
     <p1>> email me at<p1> <br>
     <p2>m0untgam3@gmail.com</p2> <br><br>
-    <p1>> or.. send me a friend request on discord (please im friendly i promise)</p1> <br>
+    <p1>> or.. friend me on discord</p1> <br>
     <p2>evacq8  or  wendigoe<p2> <br>
-    </body>
+    
+    <hr class="seperate">
 
     <h2 class="seperate" id="bio"><br><br><br><br>about me</h2>
-    <p1>> im just a teenager that likes programming, art and music</p1> <br>
-    <p1>> i mostly make games in godot and unity and rice linux</p1> <br>
-    <p1>> me like metalcore, numetal and deathcore music</p1>
+    <p1>> just a someone that likes programming, digital art, and music</p1> <br>
+    <p1>> working on my dotfiles rn</p1> <br>
+    <p1>> i like metalcore, numetal and deathcore music</p1>
+    <div class="buttons1">
+        <a href="https://open.spotify.com/playlist/57xda3bzfEgNIwQKHvYxgQ?si=74c2772ac72f4303">check out my playlist</a>
+    </div>
 
 
-    <h2 class="seperate">oyasumi</h2>
+    <hr class="seperate">
+
+    <h2 class="seperate">ᓚᘏᗢ mewo</h2>
+
+</body>
 </html>
+
+<script>
+    function copyToClipboard() {
+      // Get the text field
+      var copyText = document.getElementById("myInput");
+    
+      // Select the text field
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); // For mobile devices
+    
+      // Copy the text inside the text field to the clipboard
+      navigator.clipboard.writeText(copyText.value);
+    
+      // Alert the copied text
+      alert("Copied the text: " + copyText.value);
+    }
+</script>
