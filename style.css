@@ -1,0 +1,141 @@
+/* Add a black background color to the top navigation */
+body {
+  background-color: #181825;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1 {
+  font-family: "Lucida Console";
+  color: #cdd6f4;
+  font-size: 54px;
+  margin-left: 56px;
+}
+
+h2 {
+  margin-top: -24px;
+  font-family: "Lucida Console";
+  color: #cba6f7;
+  font-size: 32px;
+  margin-left: 56px;
+}
+
+h2.seperate {
+  margin-top: 444px;
+}
+
+p1 {
+  margin-left: 56px;
+  font-family: "Lucida Console";
+  color: #7f849c	;
+  font-size: 22px;
+}
+
+p2 {
+  margin-left: 56px;
+  font-family: "Lucida Console";
+  color: #cdd6f4;
+  font-size: 32px;
+}
+
+
+.cursor {
+  animation: blink 2s step-start 0s infinite;
+  background-color: #cba6f7;
+  width: 18px;
+  height: 30px;
+  display: inline-block;
+  margin-left: -1px;
+  margin-top: -24px;
+  margin-bottom: -5px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* navbar */
+
+.topnav {
+    font-family: "Lucida Console";
+    background-color: #181825;
+    overflow: hidden;
+    margin-top: 0;
+    margin-right: -16px;
+    margin-left: -16px;
+    padding-bottom: 5px;
+    padding-top: 8px;
+    border-bottom: 2px solid #11111b;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    color: #585b70;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    margin-left: 6px;
+  }
+
+  .topnav a.bio, .topnav a.contact {
+    margin-top: 3px;
+    padding: 12px 14px;
+    background-color: #11111b;
+    border-radius: 9px;
+    color: #7f849c	;
+    border: 1px solid #11111b;
+    transition: color 0.4s;
+    transition: border 0.4s;
+    font-weight: 100;
+    font-size: 13px;
+    user-select: none;
+    cursor: pointer;
+  }
+  
+  .topnav a.bio:hover, .topnav a.contact:hover {
+    border: 1px solid #cba6f7;
+    color: #cba6f7;
+    transition: color 0.4s;
+    transition: border 0.4s;
+  }
+  
+  .topnav a.name {
+    color: #cdd6f4;
+    margin-left: 19px;
+    transition: color 0.4s;
+    user-select: none;
+  }
+
+  .topnav a.github {
+    width: 15px; 
+    height: 15px; 
+    margin-top: -7px;
+    opacity: 0.3;
+    transition: opacity 0.4s;
+    user-select: none;
+  }
+
+  .topnav a.github:hover {
+    opacity: 1;
+    transition: opacity 0.4s;
+  }
+
+  .topnav a.divider {
+    margin-left: -8px;
+    user-select: none;
+  }
+
+  .topnav a.name:hover {
+    transition: color 0.4s;
+    color: #fff;
+  }
