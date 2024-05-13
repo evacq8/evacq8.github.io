@@ -2,33 +2,40 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
-        <title>something</title>
+        <title>evac's lair</title>
     </head>
     <body>
         <div class="topnav">
             <a class="name" href="https://evacq8.github.io/">evacq8.github.io</a>
-            <a class="divider">/</a>
+            <a class="divider">> evac's lair /</a>
             <a class="bio" onclick="document.getElementById('bio').scrollIntoView();">about me</a>
             <a class="contact" onclick="document.getElementById('contact').scrollIntoView();">contact</a>
             <a class="github" href="https://www.github.com/evacq8">
                 <img src="https://github.githubassets.com/favicons/favicon-dark.svg" alt="github">
             </a>
         </div>
-    <h1><br><br><br> hello world</h1>
-   
-    <h2>this is my github page<span class="cursor"></span></h2>
-    <p1>> . .. .. . .. . . . ... . .. .. . .. . . ..<p1>
+        
+        <div class="home">
+            <h1>evac's lair</h1>
+            <img class="pfp" src="https://avatars.githubusercontent.com/u/91666864?v=4" alt="pfp">
+            
+        
+            <h2 id="splash">​</h2>
+            <p1>> . .. .. . .. . . . ... . .. .. . .. . . ..<p1>
+            
 
-    <div class="buttons1">
-        <a onclick="document.getElementById('bio').scrollIntoView();">about me</a>
-        <a onclick="document.getElementById('contact').scrollIntoView();">contact</a>
-    </div>
+            <div class="buttons1">
+                <a onclick="document.getElementById('bio').scrollIntoView();">about me</a>
+                <a onclick="document.getElementById('contact').scrollIntoView();">contact</a>
+            </div>
 
-    <br><br>
-    <p1>> last update: may 2nd</p1> <br>
-    <p1>> hr dotted lines</p1> <br>
-    <p1>> mewo</p1> <br>
-    <p1>> useless buttons</p1>
+            <br><br>
+            <p1>> latest change to lair: may 13</p1> <br>
+            <p1>> changed colors</p1> <br>
+            <p1>> splash text (reload page)</p1> <br>
+            <p1>> and other stuff</p1>
+        </div>
+    
 
     <hr class="seperate">
 
@@ -36,39 +43,72 @@
     <p1>> email me at<p1> <br>
     <p2>m0untgam3@gmail.com</p2> <br><br>
     <p1>> or.. friend me on discord</p1> <br>
-    <p2>evacq8  or  wendigoe<p2> <br>
+    <p2>evacq8<p2> <br>
     
     <hr class="seperate">
 
-    <h2 class="seperate" id="bio"><br><br><br><br>about me</h2>
-    <p1>> just a someone that likes programming, digital art, and music</p1> <br>
-    <p1>> working on my dotfiles rn</p1> <br>
-    <p1>> i like metalcore, numetal and deathcore music</p1>
+    <div class="home">
+    <h2 id="bio"><br>about me</h2>
+    <p1>> hi im evac; (he/him)</p1> <br>
+    <p1>> just a somebody who likes digital art, programming, software stuff</p1> <br>
+    <p1>> ..psychological horror, customizing to my pleasure, and music</p1> <br>
+    <p1>>  I enjoy metalcore, deathcore, and shoegaze music genres.</p1> <br>
+    <p1>>  fav band: bullet for my valentine | fav song: my fist your mouth her scars</p1>
     <div class="buttons1">
         <a href="https://open.spotify.com/playlist/57xda3bzfEgNIwQKHvYxgQ?si=74c2772ac72f4303">check out my playlist</a>
     </div>
-
+    </div>
 
     <hr class="seperate">
 
-    <h2 class="seperate">ᓚᘏᗢ mewo</h2>
+    <h2>ᓚᘏᗢ mewo</h2>
 
 </body>
 </html>
 
 <script>
-    function copyToClipboard() {
-      // Get the text field
-      var copyText = document.getElementById("myInput");
-    
-      // Select the text field
-      copyText.select();
-      copyText.setSelectionRange(0, 99999); // For mobile devices
-    
-      // Copy the text inside the text field to the clipboard
-      navigator.clipboard.writeText(copyText.value);
-    
-      // Alert the copied text
-      alert("Copied the text: " + copyText.value);
+    (function splashText() {
+    var splashTexts = [
+        'mewo',
+        'omg!!! you!!!',
+        'waiting for something to happen?',
+        'scream. aim. f i r e',
+        'welcome home (sanitarium)',
+        'army of noise has come to destroy',
+        'welcome to where time stands still',
+        'defy! for we are many',
+        'now let them tremble!'
+    ];
+    var randomSplash = Math.floor(Math.random() * splashTexts.length);
+
+    setTimeout(beginSplash, 1000)
+
+    function beginSplash() {
+        typeOutText('splash', `${splashTexts[randomSplash]}`, 50, () => {
+         document.getElementById('splash').innerHTML = `${splashTexts[randomSplash]}<span class="cursor"></span>`;
+        });
     }
+    
+    })();
+
+   function typeOutText(elementId, text, speed, callback) {
+    let i = 0;
+    const element = document.getElementById(elementId);
+    function typeWriter() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            if(text.charAt(i) == ' ') {
+                setTimeout(typeWriter, speed * 3);
+            } else {setTimeout(typeWriter, speed);}
+            
+        } else {
+            // Animation completed, invoke the callback
+            if (typeof callback === 'function') {
+                callback();
+            }
+        }
+    }
+    typeWriter();
+}
 </script>

@@ -1,6 +1,6 @@
 /* Add a black background color to the top navigation */
 body {
-  background-color: #181825;
+  background-color: #000000;
   overflow-x: hidden;
 }
 
@@ -10,7 +10,7 @@ html {
 
 h1 {
   font-family: "Lucida Console";
-  color: #cdd6f4;
+  color: #4b4b4b;
   font-size: 54px;
   margin-left: 56px;
 }
@@ -18,7 +18,7 @@ h1 {
 h2 {
   margin-top: -24px;
   font-family: "Lucida Console";
-  color: #cba6f7;
+  color: #949494;
   font-size: 32px;
   margin-left: 56px;
 }
@@ -26,21 +26,30 @@ h2 {
 p1 {
   margin-left: 56px;
   font-family: "Lucida Console";
-  color: #7f849c	;
+  color: #4b4b4b;
   font-size: 22px;
 }
 
 p2 {
   margin-left: 56px;
   font-family: "Lucida Console";
-  color: #cdd6f4;
+  color: #949494;
   font-size: 32px;
 }
 
+img.pfp {
+  border-radius: 50%;
+  float: right;
+  filter: grayscale(100%);
+  width: 300px;
+  height: 300px;
+  margin-right: 64px;
+  margin-top: -88px;
+}
 
 .cursor {
   animation: blink 2s step-start 0s infinite;
-  background-color: #cba6f7;
+  background-color: #949494;
   width: 18px;
   height: 30px;
   display: inline-block;
@@ -50,11 +59,12 @@ p2 {
 }
 
 hr.seperate {
-  border-top: 3px dashed #313244	;
+  border-top: 3px dashed #101010;
   border-bottom: 3px solid transparent;
   margin-top: 333px;
   margin-bottom: 111px;
 }
+
 
 @keyframes blink {
   0%, 100% { opacity: 1; }
@@ -73,33 +83,36 @@ hr.seperate {
 }
 
 ::-webkit-scrollbar-track {
-  background: #181825;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #313244;
+  background: #4b4b4b;
 }
 
 /* navbar */
 
 .topnav {
     font-family: "Lucida Console";
-    background-color: #181825;
+    background-color: #040404;
     overflow: hidden;
     margin-top: 0;
     padding-bottom: 5px;
     padding-top: 8px;
-    border-bottom: 2px solid #11111b;
+    border-bottom: 2px solid #080808;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%
+    width: 100%;
+
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.4), 0 2px 4px -1px rgba(0,0,0,0.06);
+    z-index: 9999;
   }
   
   /* Style the links inside the navigation bar */
   .topnav a {
     float: left;
-    color: #585b70;
+    color: #4b4b4b;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -110,10 +123,10 @@ hr.seperate {
   .topnav a.bio, .topnav a.contact {
     margin-top: 3px;
     padding: 12px 14px;
-    background-color: #11111b;
+    background-color: #101010;
     border-radius: 9px;
-    color: #7f849c;
-    border: 1px solid #11111b;
+    color: #949494;
+    border: 1px solid #101010;
     transition: color 0.4s;
     transition: border 0.4s;
     font-weight: 100;
@@ -123,14 +136,14 @@ hr.seperate {
   }
   
   .topnav a.bio:hover, .topnav a.contact:hover {
-    border: 1px solid #cba6f7;
-    color: #cba6f7;
+    border: 1px solid #949494;
+    color: #fff;
     transition: color 0.4s;
     transition: border 0.4s;
   }
   
   .topnav a.name {
-    color: #cdd6f4;
+    color: #949494;
     margin-left: 19px;
     transition: color 0.4s;
     user-select: none;
@@ -168,11 +181,11 @@ hr.seperate {
 
   .buttons1 a {
     padding: 18px 40px;
-    background-color: #7f849c;
-    background-color: #11111b;
+    background-color: #949494;
+    background-color: #141414;
     border-radius: 9px;
-    color: #7f849c	;
-    border: 1px solid #11111b;
+    color: #949494;
+    border: 1px solid #101010;
     transition: color 0.4s;
     transition: border 0.4s;
     font-weight: 100;
@@ -187,8 +200,20 @@ hr.seperate {
   }
 
   .buttons1 a:hover {
-    border: 1px solid #cba6f7;
-    color: #cba6f7;
+    border: 1px solid #949494;
+    color: #fff;
     transition: color 0.4s;
     transition: border 0.4s;
+  }
+
+  .home {
+    margin-left: 128px;
+    margin-top: 128px;
+    margin-right: 128px;
+
+    padding-bottom: 64px;
+    padding-top: 64px;
+
+    background-color: #101010;
+    border-radius: 14px;
   }
