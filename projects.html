@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>evac's lair</title>
+        <meta name="description" content="nothing much">
+    </head>
+    <body>
+        <div class="mobilebanner"> 
+            <h1><br>> sorry<h1>
+            <h1>> this is a desktop site</h1>
+            <h1>> come back on pc</h1>
+        </div>
+
+        <div class="topnav">
+            <a class="name" href="https://evacq8.github.io/">evacq8.github.io</a>
+            <a class="divider">> projects /</a>
+            <a class="bio" onclick="document.getElementById('bio').scrollIntoView();">about me</a>
+            <a class="contact" onclick="document.getElementById('contact').scrollIntoView();">contact</a>
+            <a class="github" href="https://www.github.com/evacq8">
+                <img src="https://github.githubassets.com/favicons/favicon-dark.svg" alt="github">
+            </a>
+        </div>
+        
+        <h1>nothing here. come back soon.<h1>
+
+</body>
+</html>
+
+<script>
+    (function splashText() {
+    var splashTexts = [
+        'mewo',
+        'omg!!! you!!!',
+        'waiting for something to happen?',
+        'scream. aim. f i r e',
+        'army of noise has come to destroy',
+        'welcome to where time stands still',
+        'defy! for we are many',
+        'now let them tremble!',
+        'oyasumi o y a s u m i'
+    ];
+    var randomSplash = Math.floor(Math.random() * splashTexts.length);
+
+    setTimeout(beginSplash, 1000)
+
+    function beginSplash() {
+        typeOutText('splash', `${splashTexts[randomSplash]}`, 50, () => {
+         document.getElementById('splash').innerHTML = `${splashTexts[randomSplash]}<span class="cursor"></span>`;
+        });
+    }
+    
+    })();
+
+   function typeOutText(elementId, text, speed, callback) {
+    let i = 0;
+    const element = document.getElementById(elementId);
+    function typeWriter() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            if(text.charAt(i) == ' ') {
+                setTimeout(typeWriter, speed * 3);
+            } else {setTimeout(typeWriter, speed);}
+            
+        } else {
+            // Animation completed, invoke the callback
+            if (typeof callback === 'function') {
+                callback();
+            }
+        }
+    }
+    typeWriter();
+}
+</script>
