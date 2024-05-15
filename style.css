@@ -106,7 +106,7 @@ hr.seperate {
     width: 100%;
 
     box-shadow: 0 4px 6px -1px rgba(0,0,0,0.4), 0 2px 4px -1px rgba(0,0,0,0.06);
-    z-index: 9999;
+    z-index: 9998;
   }
   
   /* Style the links inside the navigation bar */
@@ -216,4 +216,22 @@ hr.seperate {
 
     background-color: #101010;
     border-radius: 14px;
+  }
+
+  /* mobile banner */
+  .mobilebanner { 
+      display: none;
+      position: fixed; /* Fixed position */
+      top: 0; /* Top edge of the viewport */
+      left: 0; /* Left edge of the viewport */
+      width: 100%; /* Full width */
+      height: 100vh; /* Full height (viewport height) */
+      background-color: #000; /* Green background */
+      padding: 20px; /* Some padding */
+      z-index: 9999; /* Ensure it's on top of other content */ 
+  } /* Hide the banner by default */
+  @media screen and (max-width: 600px) {
+    .banner {
+      display: block; /* Show the banner on screens less than 600px wide */
+    }
   }
