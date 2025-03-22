@@ -1,123 +1,241 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <title>evac's lair</title>
-        <meta name="description" content="nothing much">
-    </head>
-    <body>
-        <div class="mobilebanner"> 
-            <h1><br>> sorry<h1>
-            <h1>> this is a desktop site</h1>
-            <h1>> come back on pc</h1>
-        </div>
+	<head>
+		<title>evacq8.github.io</title>
+		<style>
+			body {
+				background-color: #000000;
+				overflow: hidden;
+				margin: 0;
+			}
 
-        <div class="topnav">
-            <a class="name" href="https://evacq8.github.io/">evacq8.github.io</a>
-            <a class="divider">> evac's lair /</a>
-            <a class="bio" onclick="document.getElementById('bio').scrollIntoView();">about me</a>
-            <a class="contact" onclick="document.getElementById('contact').scrollIntoView();">contact</a>
-            <a class="github" href="https://www.github.com/evacq8">
-                <img src="https://github.githubassets.com/favicons/favicon-dark.svg" alt="github">
-            </a>
-        </div>
-        
-        <div class="home">
-            <h1>evac's lair</h1>
-            <img class="pfp" src="https://avatars.githubusercontent.com/u/91666864?v=4" alt="pfp">
-            
-        
-            <h2 id="splash">​</h2>
-            <p1>> jump to:<p1>
-            
+			.vignette {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				pointer-events: none;
+				background: radial-gradient(circle, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.7) 100%)
+			}
 
-            <div class="buttons1">
-                <a onclick="document.getElementById('bio').scrollIntoView();">about me</a>
-                <a onclick="document.getElementById('contact').scrollIntoView();">contact</a>
-            </div>
+			.background {
+    			position: absolute;
+    			top: 0;
+    			left: 0;
+    			width: 100vw; 
+    			height: 100vh;
+   				background-image: url("background1.jpg");
+    			background-size: cover;
+   			    background-position: center;
+				z-index: -3;
+				filter: blur(10px) brightness(0.5);
+			}
 
-            <br><br>
-            <p1>> latest change to lair: may 13</p1> <br>
-            <p1>> changed colors</p1> <br>
-            <p1>> splash text (reload page)</p1> <br>
-            <p1>> and other stuff</p1>
-        </div>
-    
+			.static {
+				position: absolute;
+				inset: -200%;
+				background-image: url("static.png");
+				opacity: 25%;
 
-    <hr class="seperate">
+				animation: staticshift 0.2s linear infinite both;
+				z-index: -2;
+				filter: brightness(1);
+			}
 
-    <h2 class="seperate" id="contact"><br><br><br><br>contact me and stuff blah blah</h2>
-    <p1>> email me at<p1> <br>
-    <p2>m0untgam3@gmail.com</p2> <br><br>
-    <p1>> or.. friend me on discord</p1> <br>
-    <p2>evacq8<p2> <br>
-    
-    <hr class="seperate">
+			@keyframes staticshift {
+				0% {
+					transform: translateX(40%) translateY(40%);
+				}
 
-    <div class="home">
-    <h2 id="bio"><br>about me</h2>
-    <p1>> hi im evac; (he/him)</p1> <br>
-    <p1>> just a somebody who likes digital art, programming, software stuff</p1> <br>
-    <p1>> ..psychological horror, customizing to my pleasure, and music</p1> <br>
-    <p1>> I enjoy metalcore, deathcore, and shoegaze music genres.</p1> <br>
-    <p1>> fav band: bullet for my valentine</p1> <br>
-    <p1>> fav song: my fist your mouth her scars</p1> <br>
-    <p1>> other aliases: wendigoe, willowh, mount</p1>
-    <div class="buttons1">
-        <a href="https://open.spotify.com/playlist/57xda3bzfEgNIwQKHvYxgQ?si=74c2772ac72f4303">check out my playlist</a>
-    </div>
-    </div>
+				100% {
+					transform: translateX(-40%) translateY(-40%);
+				}
+			}
 
-    <hr class="seperate">
+			.cursor {
+				background-color: #ffffff;
+				width: 18px;
+				height: 30px;
+				display: inline-block;
+				animation: cursorblinking 1s step-start 0s infinite;
+				box-shadow: 0 0 17px rgba(200,200,200,0.8);
+			}
 
-    <h2>ᓚᘏᗢ mewo</h2>
+			@keyframes cursorblinking {
+				0%, 100% {
+					opacity: 1;
+				}
+				50% {
+					opacity: 0;
+				}
+			}
+			
+			.profile-pane {
+				margin-left: 25%;
+				margin-right: 25%;
+				margin-top: 10%;
+				padding: 64px;
+				background-color: #000000;
 
-</body>
+				border-radius: 20px;
+				box-shadow: 0 0 24px rgba(0, 0, 0, 0.8);
+			}
+
+			h1 {
+				color: #646464;
+				font-family: 'Lucida Console', monospace;
+			}
+
+			.highlight {
+				color: #A4A4A4;
+				text-decoration: underline;
+				text-decoration-style: wavy;
+				text-decoration-color: #A4A4A4;
+				position: relative;
+			}
+
+			.highlight:hover {
+				color: #ffffff;
+				text-shadow: 0 0 17px rgba(200, 200, 200, 0.8);
+			}
+
+			.highlight::after {
+				content: attr(data-popup);
+				position: absolute;
+				bottom: -120%;
+				left: -80%;
+				background-color: #141414;
+				color: #A4A4A4;
+				padding: 12px;
+				border-radius: 8px;
+				font-size: 18px;
+				pointer-events: none;
+				white-space: nowrap;
+				text-shadow: none;
+
+				opacity: 0; /* initially hidden */
+				transition: opacity 0.3s ease;
+			}
+
+			.highlight:hover::after {
+				opacity: 1;
+			}
+
+			.small-text {
+				color: #373737;
+				font-weight: lighter;
+			}
+
+			.close-button {
+				color: #A4A4A4;
+			}
+
+			.icons {
+				margin: -30px -40px;
+				height: 30px;
+				width: 90px;
+				float: right;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 15px;
+			}
+
+			.icons img {
+				width: 30px;
+				height: 30px;
+				opacity: 0.3;
+			}
+
+			.icons img:hover {
+				opacity: 1;
+				cursor: pointer;
+			}
+
+			.icon-popup {
+				position: absolute;
+				transform: translateX(-33%);
+				font-family: 'Lucida Console', monospace;
+
+				background-color: #141414;
+				color: #A4A4A4;
+				padding: 12px;
+				border-radius: 8px;
+				font-size: 18px;
+				pointer-events: none;
+				white-space: nowrap;
+
+				opacity: 0;
+				transition: opacity 0.3s ease;
+			}
+
+			.icon-container:hover .icon-popup {
+				opacity: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="static"></div>
+		<div class="background"></div>
+		<div class="vignette"></div>
+		<div class="profile-pane">
+			<div class="icons">
+				<div class="icon-container">
+					<img src="discord-icon.png" id="discord-button"></span>
+					<div class="icon-popup" id="discord-popup">Discord</div>
+				</div>
+				<div class="icon-container">
+					<img src="github-icon.png" id="github-button"></span>
+					<div class="icon-popup" id="github-popup">Github</div>
+				</div>
+			</div>
+			<h1>
+				<span id="typed-text"></span>
+				<span class="cursor" style="margin-left: -1ch"></span>
+			</h1>
+		</div>
+		<script>
+			const text = `Hello World! @I'm >evacq8<.@@^I program, draw, and play guitar in my free time. My favorite music genres are melodic black & death metal.<@@That's about it for now.@Thank you for visiting!`;
+    const targetElement = document.getElementById("typed-text");
+    let output = "";
+    let index = 0;
+
+    function typeText() {
+        if (index < text.length) {
+            	const char = text.charAt(index);
+            	if (char === '@') {
+                	output += "<br>";
+            	} else if (char === '>') {
+                	output += `<span class="highlight" data-popup="Other names: Willoh, Mount">`;
+				} else if (char === '^') {
+					output += `<span class="small-text">`
+				} else if (char === '<') {
+                	output += `</span>`;
+            	} else {
+                	output += char;
+            	}
+            	// Update the element with the accumulated string.
+            	targetElement.innerHTML = output;
+            	index++;
+				setTimeout(typeText, 15);
+		}
+    }
+    typeText();
+
+			const GithubButton = document.getElementById('github-button');
+			const GithubPopup = document.getElementById('github-popup');
+			GithubButton.addEventListener('click', function() { 
+				window.location.href = "https://github.com/evacq8";
+				GithubPopup.textContent = "Redirecting...";
+			});
+
+			const DiscordButton = document.getElementById('discord-button');
+			const DiscordPopup = document.getElementById('discord-popup');
+			DiscordButton.addEventListener('click', function() {
+				navigator.clipboard.writeText("evacq8");
+				DiscordPopup.innerHTML = '<b>Copied!</b>';
+			}); 
+	</script>
+	</body>
 </html>
-
-<script>
-    (function splashText() {
-    var splashTexts = [
-        'mewo',
-        'omg!!! you!!!',
-        'waiting for something to happen?',
-        'scream. aim. f i r e',
-        'army of noise has come to destroy',
-        'welcome to where time stands still',
-        'defy! for we are many',
-        'now let them tremble!',
-        'oyasumi o y a s u m i'
-    ];
-    var randomSplash = Math.floor(Math.random() * splashTexts.length);
-
-    setTimeout(beginSplash, 1000)
-
-    function beginSplash() {
-        typeOutText('splash', `${splashTexts[randomSplash]}`, 50, () => {
-         document.getElementById('splash').innerHTML = `${splashTexts[randomSplash]}<span class="cursor"></span>`;
-        });
-    }
-    
-    })();
-
-   function typeOutText(elementId, text, speed, callback) {
-    let i = 0;
-    const element = document.getElementById(elementId);
-    function typeWriter() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            if(text.charAt(i) == ' ') {
-                setTimeout(typeWriter, speed * 3);
-            } else {setTimeout(typeWriter, speed);}
-            
-        } else {
-            // Animation completed, invoke the callback
-            if (typeof callback === 'function') {
-                callback();
-            }
-        }
-    }
-    typeWriter();
-}
-</script>
