@@ -26,10 +26,23 @@
     			width: 100vw; 
     			height: 100vh;
    				background-image: url("background1.jpg");
-    			background-size: cover;
+    			background-size: 150%;
    			    background-position: center;
 				z-index: -3;
 				filter: blur(10px) brightness(0.5);
+				animation: backgroundpan 80s infinite linear;
+			}
+
+			@keyframes backgroundpan {
+				0% {
+					background-position: 0% center;
+				}
+				50% {
+					background-position: 100% center;
+				}
+				100% {
+					background-position: 0% center;
+				}
 			}
 
 			.static {
@@ -55,11 +68,14 @@
 
 			.cursor {
 				background-color: #ffffff;
-				width: 18px;
+				width: 2px;
 				height: 30px;
 				display: inline-block;
-				animation: cursorblinking 1s step-start 0s infinite;
 				box-shadow: 0 0 17px rgba(200,200,200,0.8);
+			}
+			
+			.cursorNormalMode {
+				animation: cursorblinking 1s step-start 0s infinite;
 			}
 
 			@keyframes cursorblinking {
@@ -85,6 +101,7 @@
 			h1 {
 				color: #646464;
 				font-family: 'Lucida Console', monospace;
+				font-weight: 500;
 			}
 
 			.highlight {
@@ -124,7 +141,6 @@
 
 			.small-text {
 				color: #373737;
-				font-weight: lighter;
 			}
 
 			.close-button {
@@ -145,7 +161,7 @@
 			.icons img {
 				width: 30px;
 				height: 30px;
-				opacity: 0.3;
+				opacity: 0.2;
 			}
 
 			.icons img:hover {
@@ -192,11 +208,17 @@
 			</div>
 			<h1>
 				<span id="typed-text"></span>
-				<span class="cursor" style="margin-left: -1ch"></span>
+				<span id="cursor" class="cursor" style="margin-left: -1ch"></span>
 			</h1>
 		</div>
 		<script>
-			const text = `Hello World! @I'm >evacq8<.@@^I program, draw, and play guitar in my free time. My favorite music genres are melodic black & death metal.<@@That's about it for now.@Thank you for visiting!`;
+			const text = `
+			Hello, World! @I'm >evacq8<. @@^
+			In my free time, I enjoy programming, sketching, and playing guitar. @
+			I find solace in deathcore/blackmetal/ambient music, sad stories, and bingewatching. @
+			@
+			MMXXV/III/XXIX @
+			<Thank you for visiting my quiet corner of the internet!`;
     const targetElement = document.getElementById("typed-text");
     let output = "";
     let index = 0;
@@ -219,9 +241,15 @@
             	targetElement.innerHTML = output;
             	index++;
 				setTimeout(typeText, 15);
-		}
+		} else { finishedTypingText(); }
     }
     typeText();
+
+	function finishedTypingText() {
+		const cursorElement = document.getElementById("cursor");
+		cursorElement.style.width = "18px";
+		cursorElement.classList.add("cursorNormalMode");
+	}
 
 			const GithubButton = document.getElementById('github-button');
 			const GithubPopup = document.getElementById('github-popup');
