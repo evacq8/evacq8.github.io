@@ -148,7 +148,7 @@
 			}
 
 			.icons {
-				margin: -30px -40px;
+				margin: -30px -20px;
 				height: 30px;
 				width: 90px;
 				float: right;
@@ -205,6 +205,10 @@
 					<img src="github-icon.png" id="github-button"></span>
 					<div class="icon-popup" id="github-popup">Github</div>
 				</div>
+				<div class="icon-container">
+					<img src="last-fm-logo.png" id="lastfm-button"></span>
+					<div class="icon-popup" id="lastfm-popup">Last.fm</div>
+				</div>
 			</div>
 			<h1>
 				<span id="typed-text"></span>
@@ -214,10 +218,10 @@
 		<script>
 			const text = `
 			Hello, World! @I'm >evacq8<. @@^
-			In my free time, I enjoy programming, sketching, and playing guitar. @
-			I find solace in deathcore/blackmetal/ambient music, sad stories, and bingewatching. @
-			@
-			MMXXV/III/XXIX @
+			My current trilogy of hobbies consists of: Cybersecurity, Drawing, and Guitar.@
+			I enjoy symphonic/blackened deathcore and melo-death/black metal music! \\m/
+			@@
+			MMXXV/IV/XXIX @
 			<Thank you for visiting my quiet corner of the internet!`;
     const targetElement = document.getElementById("typed-text");
     let output = "";
@@ -263,7 +267,15 @@
 			DiscordButton.addEventListener('click', function() {
 				navigator.clipboard.writeText("evacq8");
 				DiscordPopup.innerHTML = '<b>Copied!</b>';
-			}); 
-	</script>
+			});
+
+			const LastfmButton = document.getElementById('lastfm-button');
+			const LastfmPopup = document.getElementById('lastfm-popup');
+			LastfmButton.addEventListener('click', function() { 
+				window.location.href = "https://www.last.fm/user/wendigoe";
+				LastfmPopup.textContent = "Redirecting...";
+			});
+
+		</script>
 	</body>
 </html>
