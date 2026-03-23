@@ -9,8 +9,8 @@ canvas.height = window.innerHeight;
 const chars = ` .-+=:*@#`;
 const charArray = chars.split("");
 
-const fontWidth = 10*2;
-const fontHeight = 10*2;
+const fontWidth = 22;
+const fontHeight = 22;
 
 // For storing direction of fluid
 class Vector2 {
@@ -64,6 +64,22 @@ function generateGrid() {
 }
 generateGrid(); // Call once on startup
 
+window.addEventListener('resize', () => {
+    // 1. Update pixel dimensions
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // 2. Recalculate grid dimensions
+    columns = Math.floor(canvas.width / fontWidth);
+    rows = Math.floor(canvas.height / fontHeight);
+
+    // 3. Regenerate the grid so it matches the new size
+    // Note: This will clear the current "fluid" state. 
+    generateGrid();
+});
+
+// Call this inside your 'resize' event listener!
+
 function diffuseGrid() {
     const conduction = 1.45; 
     const flowSpeed = 19;
@@ -104,8 +120,8 @@ function diffuseGrid() {
             cell.flux.y = cell.flux.y * 0.5 + upstream.flux.y * 0.5;
 
 			// Randomness
-            cell.flux.x += (Math.random() - 0.5) * 0.1;
-            cell.flux.y += (Math.random() - 0.5) * 0.1;
+            cell.flux.x += (Math.random() - 0.5) * 0.15;
+            cell.flux.y += (Math.random() - 0.5) * 0.15;
             
 			// Waste energy
             cell.flux.x *= damping;
@@ -129,7 +145,7 @@ function draw() {
             let charIdx = Math.floor(intensity * (charArray.length - 1));
             let char = charArray[charIdx];
 
-            ctx.fillStyle = `rgb(${40 + 50*cell.flux.magnitude()}, ${40 + 50*cell.flux.magnitude()}, ${40 + 50*cell.flux.magnitude()})`;
+            ctx.fillStyle = `rgb(${60 + 50*cell.flux.magnitude()}, ${60 + 50*cell.flux.magnitude()}, ${60 + 50*cell.flux.magnitude()})`;
             
             ctx.fillText(char, x * fontWidth, y * fontHeight);
         }

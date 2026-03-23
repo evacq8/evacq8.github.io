@@ -1,14 +1,63 @@
-body {
-	background-color: black;
+:root {
+	--ch-size: 22px;
 }
 
-#matrix-rain {
+body {
+	background-color: black;
+	font-family: 'Source Code Pro', monospace;
+    line-height: var(--ch-size); 
+    font-size: var(--ch-size);
+}
+#ui-layer {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+
+	color: #aaaaaa;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    pointer-events: none;    /* mouse pass through */
+    z-index: 10;
+}
+#main-card .dull {
+	color: #666666;
+}
+#main-card .header {
+	margin-top: -19px;
+	margin-left: -30px;
+	line-height: 16px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+#main-card {
+	line-height: 32px;
+    pointer-events: auto;    /* Re-enables clicks so you can interact with the card */
+    background: #000000;
+	border: 2px solid #888;
+	border-radius: 4px;
+    padding: calc(2*var(--ch-size));
+    width: calc(24*var(--ch-size));
+    height: calc(28*var(--ch-size));
+}
+
+a, a:visited {
+	color: #aaa;
+	
+}
+
+#terminal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: -1;
-    /* Remove background-color: #000; */
-    background: transparent; 
+    background: transparent;
+	display: block;
 }
