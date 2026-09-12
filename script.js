@@ -83,8 +83,8 @@ window.addEventListener('resize', () => {
 
 // Read from cell.prevFlux and modify cell.flux
 function diffuseGrid() {
-    const damping = 0.98; // % of energy lost during transfer
-	const sharing_amt = 0.8; // % of energy to transfer per frame
+    const damping = 0.99; // % of energy lost during transfer
+	const sharing_amt = 0.9; // % of energy to transfer per frame
 	// Loop thrugh each character/cell
     for (let y = 1; y < rows - 1; y++) {
         for (let x = 1; x < columns - 1; x++) {
@@ -129,10 +129,13 @@ function diffuseGrid() {
         }
     }
 	// Set prevFlux to equal flux for the next iteration
-	grid.flat().forEach(c => { 
-		c.prevFlux.x = c.flux.x; 
-		c.prevFlux.y = c.flux.y;
-	})
+	for (let y = 0; y < rows; y++) {
+		for (let x = 0; x < columns; x++) {
+			const cell = grid[y][x];
+			cell.prevFlux.x = cell.flux.x;
+			cell.prevFlux.y = cell.flux.y;
+		}
+	}
 }
 
 

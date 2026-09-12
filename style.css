@@ -2,6 +2,10 @@
 	--ch-size: 22px;
 }
 
+::selection {
+	background-color: rgba(100, 100, 100, 0.5);
+}
+
 body {
 	background-color: black;
 	font-family: 'Source Code Pro', monospace;
@@ -38,19 +42,46 @@ body {
 #main-card {
 	line-height: 32px;
     pointer-events: auto;    /* Re-enables clicks so you can interact with the card */
-    background: #000000;
+    background: rgba(0, 0, 0, 0);
+	backdrop-filter: blur(20px);
 	border: 2px solid #888;
 	border-radius: 4px;
     padding: calc(2*var(--ch-size));
-    width: calc(24*var(--ch-size));
-    height: calc(28*var(--ch-size));
+    width: calc(44*var(--ch-size));
+    height: calc(35*var(--ch-size));
 }
 
 a, a:visited {
-	color: #aaa;
-	
+    color: #aaa;
+    padding: 2px;
+    border-radius: 4px;
+    position: relative;
+    display: inline-block;
+    transition: color 0.1s linear;
+    z-index: 1;
 }
 
+/* The sliding background layer */
+a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+	background-color: rgba(200, 200, 200, 0.7);
+    transition: width 0.1s linear;
+    z-index: -1;
+}
+
+a:hover::before {
+    width: 100%;
+}
+
+a:hover {
+
+    color: #000;
+}
 #terminal-background {
     position: fixed;
     top: 0;
